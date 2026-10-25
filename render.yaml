@@ -1,0 +1,26 @@
+# One-click backend deploy on Render (Blueprint). Other hosts: use backend/Dockerfile.
+services:
+  - type: web
+    name: jarvis-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm ci
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        sync: false        # paste your MongoDB Atlas connection string
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false        # optional: enables real web search (Wikipedia-only without it)
+      - key: APP_KEY
+        sync: false        # optional, must match the app's APP_KEY
+      - key: CLIENT_ORIGIN
+        value: "*"

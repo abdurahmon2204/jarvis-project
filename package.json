@@ -1,0 +1,19 @@
+{
+  "name": "jarvis-complete",
+  "private": true,
+  "version": "3.1.0",
+  "description": "J.A.R.V.I.S. voice assistant: Node backend + React web client + React Native (Android) client",
+  "scripts": {
+    "install:all": "npm --prefix backend install && npm --prefix web install && npm --prefix mobile install",
+    "doctor": "npm --prefix backend run doctor",
+    "test": "npm --prefix backend test",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:web": "npm --prefix web run dev",
+    "dev:mobile": "npm --prefix mobile start",
+    "android": "npm --prefix mobile run android",
+    "model": "npm --prefix mobile run model",
+    "configure:mobile": "npm --prefix mobile run configure",
+    "verify": "node verify.js",
+    "start": "npm --prefix backend start"
+  }
+}
